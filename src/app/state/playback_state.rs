@@ -263,10 +263,10 @@ pub enum PlaylistChange {
     MovedDown(usize),
 }
 
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Debug)]
 pub enum Device {
     Local,
-    Connect,
+    Connect(String),
 }
 
 #[derive(Clone, Debug)]
