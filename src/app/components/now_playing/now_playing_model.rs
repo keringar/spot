@@ -5,7 +5,9 @@ use std::cell::Ref;
 use std::ops::Deref;
 use std::rc::Rc;
 
+use crate::app::components::HeaderBarModel;
 use crate::app::components::SimpleHeaderBarModel;
+use crate::app::components::SimpleHeaderBarModelWrapper;
 use crate::app::components::{labels, PlaylistModel};
 use crate::app::models::SongDescription;
 use crate::app::models::SongModel;
@@ -53,6 +55,14 @@ impl NowPlayingModel {
         }));
 
         Some(())
+    }
+
+    pub fn to_headerbar_model(self: &Rc<Self>) -> Rc<impl HeaderBarModel> {
+        Rc::new(SimpleHeaderBarModelWrapper::new(
+            self.clone(),
+            self.app_model.clone(),
+            self.dispatcher.box_clone(),
+        ))
     }
 }
 
