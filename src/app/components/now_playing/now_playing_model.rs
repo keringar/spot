@@ -175,7 +175,7 @@ impl PlaylistModel for NowPlayingModel {
 
 impl SimpleHeaderBarModel for NowPlayingModel {
     fn title(&self) -> Option<String> {
-        Some(gettext("Now playing"))
+        None
     }
 
     fn title_updated(&self, _: &AppEvent) -> bool {
