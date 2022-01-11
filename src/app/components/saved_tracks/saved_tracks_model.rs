@@ -148,7 +148,7 @@ impl PlaylistModel for SavedTracksModel {
 
     fn enable_selection(&self) -> bool {
         self.dispatcher
-            .dispatch(AppAction::EnableSelection(SelectionContext::Default));
+            .dispatch(AppAction::EnableSelection(SelectionContext::SavedTracks));
         true
     }
 
